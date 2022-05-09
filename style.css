@@ -1,0 +1,102 @@
+body {
+  background-image: linear-gradient(rgb(218, 197, 245), rgb(241, 202, 226));
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+#grid-container {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 185px);
+  grid-template-rows: repeat(3, 185px);
+  grid-gap: 3px;
+}
+
+.grid-item {
+  height: 185px;
+  width: 185px;
+  display: inline-block;
+  border-radius: 10px;
+  background-color: rgb(70, 238, 107);
+  font-size: 20px;
+  text-align: center;
+  margin: auto;
+}
+
+.btn {
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(131, 63, 177);
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  text-align: center;
+  padding: 10px;
+  display: inline-block;
+}
+
+.img {
+  width: 185px;
+  height: 185px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+#panel {
+  display: block;
+  margin: auto;
+  width: 561px;
+  height: 130px;
+  background-color: rgba(143, 134, 155, 0.4);
+  border-radius: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: white;
+}
+
+#buttons-container > button {
+  margin-top: 12px;
+  margin-left: 12px;
+}
+
+#buttons-container > button:hover {
+  background-color: white;
+  color: black;
+}
+
+#scores-container {
+  margin-top: 12px;
+  text-align: center;
+}
+
+#scores-container > span {
+  font-size: 20px;
+}
+
+#message {
+  position: relative;
+  margin-left: 50px;
+}
+
+#player-two-score {
+  margin-left: 50px;
+}
+
+#message-container {
+  margin-top: 12px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
+}
+
+.unclickable {
+  pointer-events: none;
+}
