@@ -104,19 +104,16 @@ function hideImages() {
         const secondClicked = document.getElementById(`grid-item-${[lastTwoClickedIndices[1]]}`);
 
         if (!firstClicked.firstChild.src.includes("hole")) {
-
             firstClicked.firstChild.classList.add("hidden");
         }
 
         if (!secondClicked.firstChild.src.includes("hole")) {
-
             secondClicked.firstChild.classList.add("hidden");
         }
     }
     else {
 
         if (!firstClicked.firstChild.src.includes("hole")) {
-
             firstClicked.firstChild.classList.add("hidden");
         }
     }
