@@ -25,7 +25,7 @@ export function runGameLogic(index, image) {
                 removeGridItems();
                 createGrid(numberGridItems);
             }
-        }, 3500);
+        }, 1500);
 
     }
     else if (lastTwoClickedIndices.length === 2) {
@@ -46,7 +46,7 @@ export function runGameLogic(index, image) {
                     removeGridItems();
                     createGrid(numberGridItems);
                 }
-            }, 3500);
+            }, 1500);
 
         }
         else {
@@ -64,7 +64,7 @@ export function runGameLogic(index, image) {
                     removeGridItems();
                     createGrid(numberGridItems);
                 }
-            }, 3500);
+            }, 1500);
         }
     }
 }
