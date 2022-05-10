@@ -43,7 +43,7 @@ function createIndicesArrays(numberGridItems) {
     }
 }
 
-// shuffles gridItemsIndices to achieve random assignment of images
+// shuffles gridItemsIndices to achieve random assignment of images to grid items
 function shuffleGridItemsIndicesArray(gridItemsIndices) {
     let currentIndex = gridItemsIndices.length;
     let randomIndex;
