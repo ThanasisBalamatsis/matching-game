@@ -8,6 +8,7 @@ export function runGameLogic(index, image) {
 
     addToLastTwoClickedIndices(index);
 
+    // if penalty image is clicked
     if (image.src.includes("hole")) {
         makeGridItemsUnclickable();
         removeLastClickedFromActiveGridIndices(index);
@@ -21,6 +22,8 @@ export function runGameLogic(index, image) {
             makeGridItemsClickable();
             displayCurrentPlayer();
             displayMessage("Ready to play!");
+
+            // if all images are revealed => recreate grid
             if (activeGridItemsIndices.length === 0 ) {
                 removeGridItems();
                 createGrid(numberGridItems);
@@ -31,7 +34,7 @@ export function runGameLogic(index, image) {
     else if (lastTwoClickedIndices.length === 2) {
         
         if (checkIfThereIsMatching()) {
-            makeGridItemsUnclickable();
+            makeGridItemsUnclickable();  
             removeLastTwoClickedFromActiveGridIndices();
             increaseScore();
             changeCurrentPlayerIndex();
@@ -42,6 +45,8 @@ export function runGameLogic(index, image) {
                 makeGridItemsClickable();
                 displayCurrentPlayer();
                 displayMessage("Ready to play!");
+
+                // if all images are revealed => recreate grid
                 if (activeGridItemsIndices.length === 0 ) {
                     removeGridItems();
                     createGrid(numberGridItems);
@@ -60,6 +65,8 @@ export function runGameLogic(index, image) {
                 makeGridItemsClickable();
                 displayCurrentPlayer();
                 displayMessage("Ready to play!");
+
+                // if all images are revealed => recreate grid
                 if (activeGridItemsIndices.length === 0 ) {
                     removeGridItems();
                     createGrid(numberGridItems);

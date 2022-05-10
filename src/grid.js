@@ -4,7 +4,7 @@ export const numberGridItems = 9;
 const gridContainer = document.getElementById("grid-container");
 const images = ["blue", "blue", "pink", "pink", "turquoise", "turquoise", "purple", "purple", "hole"];
 let gridItemsIndices = [];
-export let activeGridItemsIndices = [];
+export let activeGridItemsIndices = []; //indices of grid items that can be clicked
 
 
 export function createGrid(numberGridItems) {
@@ -42,6 +42,9 @@ function createIndicesArrays(numberGridItems) {
         activeGridItemsIndices[i] = i;
     }
 }
+
+
+// shuffles gridItemsIndices to achieve random assignment of images
 
 function shuffleGridItemsIndicesArray(gridItemsIndices) {
     let currentIndex = gridItemsIndices.length;
