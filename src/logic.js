@@ -3,6 +3,7 @@ import {increaseScore, decreaseScore, changeCurrentPlayerIndex} from "./score.js
 import {displayScores, displayMessage, displayCurrentPlayer} from "./message.js"
 
 let lastTwoClickedIndices = [];
+let message;
 
 export function runGameLogic(index, image) {
 
@@ -13,21 +14,11 @@ export function runGameLogic(index, image) {
         makeGridItemsUnclickable();
         removeLastClickedFromActiveGridIndices(index);
         decreaseScore();
-        changeCurrentPlayerIndex();
-        displayScores();
-        displayMessage("Oops! Penalty!");
+        message = "Oops! Penalty!";
+        runStandardSequenceBeforeTimeout(message);
         setTimeout(function() {
             hideImages();
-            lastTwoClickedIndices = [];
-            makeGridItemsClickable();
-            displayCurrentPlayer();
-            displayMessage("Ready to play!");
-
-            // if all images are revealed => recreate grid
-            if (activeGridItemsIndices.length === 0 ) {
-                removeGridItems();
-                createGrid(numberGridItems);
-            }
+            runStandardSequenceAfterTimeout();
         }, 1500);
 
     }
@@ -37,43 +28,46 @@ export function runGameLogic(index, image) {
             makeGridItemsUnclickable();  
             removeLastTwoClickedFromActiveGridIndices();
             increaseScore();
-            changeCurrentPlayerIndex();
-            displayScores();
-            displayMessage("Nice!They match!");
+            message = "Nice!They match!";
+            runStandardSequenceBeforeTimeout(message);
             setTimeout(function() {
-                lastTwoClickedIndices = [];
-                makeGridItemsClickable();
-                displayCurrentPlayer();
-                displayMessage("Ready to play!");
-
-                // if all images are revealed => recreate grid
-                if (activeGridItemsIndices.length === 0 ) {
-                    removeGridItems();
-                    createGrid(numberGridItems);
-                }
+                runStandardSequenceAfterTimeout();
             }, 1500);
 
         }
         else {
             makeGridItemsUnclickable();
-            changeCurrentPlayerIndex();
-            displayScores();
-            displayMessage("They don't match!");
+            message = "They don't match!";
+            runStandardSequenceBeforeTimeout(message);
             setTimeout(function() {
                 hideImages();
-                lastTwoClickedIndices = [];
-                makeGridItemsClickable();
-                displayCurrentPlayer();
-                displayMessage("Ready to play!");
-
-                // if all images are revealed => recreate grid
-                if (activeGridItemsIndices.length === 0 ) {
-                    removeGridItems();
-                    createGrid(numberGridItems);
-                }
+                runStandardSequenceAfterTimeout();
             }, 1500);
         }
     }
+}
+
+function runStandardSequenceBeforeTimeout(message) {   
+    changeCurrentPlayerIndex();
+    displayScores();
+    displayMessage(message);
+}
+
+function runStandardSequenceAfterTimeout() {
+    lastTwoClickedIndices = [];
+    makeGridItemsClickable();
+    displayCurrentPlayer();
+    displayMessage("Ready to play!");
+
+    // if all images are revealed => recreate grid
+    if (activeGridItemsIndices.length === 0 ) {
+        runStandardSequenceToRecreateGrid();
+    }    
+}
+
+function runStandardSequenceToRecreateGrid() {
+    removeGridItems();
+    createGrid(numberGridItems);
 }
 
 function addToLastTwoClickedIndices(index) {
